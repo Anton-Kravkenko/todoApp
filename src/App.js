@@ -33,13 +33,13 @@ function App() {
  <p> {todo1.titles}</p>
  <p> {todo1.bodys}</p>
  
-  </div>)};
+  </div>)}
 
     <input placeholder='titles' value={titles} onChange={e => settitle(e.target.value)} ></input>
     <input placeholder='body' value={bodys} onChange={e => setbodys(e.target.value)} ></input>
     <button onClick={addTodo}>добавить</button>
     </div>
-  );
+  );  
 }
 
 export default App;
