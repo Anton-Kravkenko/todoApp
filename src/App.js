@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="App">
    
-    <h1>todolisting v2s WORK</h1>
+    <h1>First Project - TodoApp</h1>
   
   {  todos.map(todo1 => <div className='mapingdivs'>
 
