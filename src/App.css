@@ -4,11 +4,44 @@ body{
   margin: 0 auto;
 }
 
+.loader {
+  position: absolute !important;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.addTodoFild {
+  width: 100%;
+  bottom: 0px;
+  position: relative;
+  max-width: 100%;
+}
+
+.delete {
+  padding: 5px;
+  width: 60px;
+  display: flex;
+  margin: 0;
+  margin-top: 5px;
+  align-items: center;
+}
+
+.widthBLOCK {
+  width: 80%;
+}
+
+h1 {
+  text-align: center;
+}
+
 .container{
   max-width: 450px;
 }
 .mapingdivs {
-  margin: 35px;
+ max-width: 80%;
+ margin: 0 auto;
   margin-bottom: 15px;
 margin-top: 15px;
 }
@@ -46,6 +79,7 @@ label.add{
   background-color:rgba(0, 0, 0, .2); 
   border-radius: 10px;
   padding: 11px;
+  display: flex;
 }
 h1 {
   color: whitesmoke;
