@@ -3,6 +3,9 @@ body{
   max-width: 500px;
   margin: 0 auto;
 }
+.m5 {
+  margin-bottom: 10px;
+}
 
 .loader {
   position: absolute !important;
@@ -65,8 +68,14 @@ li.list-group-item{
 
 .delete{
   cursor: pointer;
+  height:50px;
+  align-items: center;
+  margin: auto;
 }
-
+.bodys {
+  font-size: 14px;
+  font-weight: 100;
+}
 label.add{
   margin-bottom: 15px;
 }
