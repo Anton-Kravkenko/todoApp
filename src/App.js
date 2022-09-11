@@ -1,19 +1,25 @@
 import { useEffect } from 'react';
 import './App.css';
-import * as Scroll from 'react-scroll';
+import { FaTrashAlt } from 'react-icons/fa';
 import React from 'react';
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 function App() {
   const axios = require('axios');
-
   const [todos, setTodos] = React.useState([])
   const [title, settitle] = React.useState("");
-  const [body, setbodys] = React.useState("");
   const [Isloading, setLoading] = React.useState(false);
+  const [HeaderText__value, setHeaderText] = React.useState("TodoApp in react")
+
+  async function FetchPost() {
+    setHeaderText("You load todos from jsonplaceholder");
+    const {data} = await axios.get("https://jsonplaceholder.typicode.com/posts")
+  setTodos(data)
   
+  }
+
   useEffect(() => {
     setLoading(true)
-    setTimeout(() => {
+    setTimeout(() =>   {
       setLoading(false)
     }, 2000);
   }, []);
@@ -21,36 +27,34 @@ function App() {
     const deleted = index => {
       const copy = [...todos]
      copy.splice(index, 1);
-     console.log(copy)
+ 
      setTodos(copy)
    
       
     }
+
   const addTodo = () => {
-		setTodos(todos => [
-			{
-				title,
-				body,
-			},
-			...todos,   
-		])
-   settitle("")
-   setbodys("")
+    if(title === '') {
+     console.log("write title n field")
+    } else {
+      setTodos(todos => [
+        {
+          title,
+        },
+        ...todos,   
+      ])
+     settitle("")
+    }
+	
 
  
 	}
 
-async function FetchPost() {
-  const {data} = await axios.get("https://jsonplaceholder.typicode.com/posts")
-  setTodos(data)
- 
 
- }
   return (
-    <div className="App">
+    <body className="App">
    { Isloading ? (
 
-    <body>
     <ClimbingBoxLoader
   height="300"
   className='loader'
@@ -59,31 +63,26 @@ async function FetchPost() {
   color="white"
 
 />
-    </body>
+   
 
      ) : (
-      <body>
-      <h1 onClick={FetchPost}>First Project - TodoApp</h1>
-       {  todos.map((todo1, index) => ( 
-<div className='mapingdivs'>
+      <div>
+      <h1 onClick={FetchPost}>{HeaderText__value}</h1>
+    <div className="mapping__elements__container">
+    {  todos.map((todo1, index) => ( 
+<div className='mapingdivs' key={index}>
 <div className='widthBLOCK'>
-
- <p className='m5'> {todo1.title}</p>
- <p className='bodys'> {todo1.body}</p>
- 
-
+ <p className='m5' > {todo1.title}</p>
 </div>
-
- <button className='delete' onClick={() => deleted(index)}>Удалить</button>
- 
+ <FaTrashAlt className='trash__deleteitems' onClick={() => deleted(index)}></FaTrashAlt>
   </div>))}
+    </div>
 
-<div className='addTodoFild'>
-<input placeholder='titles' value={title} onChange={e => settitle(e.target.value)} ></input>
-<input placeholder='body' value={body} onChange={e => setbodys(e.target.value)} ></input>
-<button onClick={addTodo}>добавить</button>
+<div className='input__Wrapper'>
+<input placeholder='Write you todo here' onKeyPress={(e) => e.key === 'Enter' && addTodo()} value={title} onChange={e => settitle(e.target.value)} ></input>
 </div>
- </body> )}
- </div> ); }
+ </div> 
+ )}
+ </body> ); }
 
 export default App;

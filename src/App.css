@@ -1,12 +1,30 @@
 body{
-  background-color: #352f5b;
-  max-width: 500px;
+  background-color: slateblue;
   margin: 0 auto;
 }
-.m5 {
-  margin-bottom: 10px;
-}
 
+input[type=text],
+input[type=text]:focus{
+  color: #fff;
+  transition: all ease-out 0.5s;
+  border: none;
+  background-color: rgba(0, 0, 0, .2);
+}
+.trash__deleteitems {
+  color: white;
+  margin-top: auto;
+margin-bottom: auto;
+
+font-size: 21px;
+display: block;
+margin-left: auto;
+}
+.trash__deleteitems:hover {
+  color: wheat;
+margin: auto auto;
+transition: all ease-in 0.7s;
+font-size: 21px;
+}
 .loader {
   position: absolute !important;
     top: 50%;
@@ -52,13 +70,18 @@ margin-top: 15px;
 p {
   color: white;
   margin: 0;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 28px;
 }
 
 input[type=text],
 input[type=text]:focus{
   color: #fff;
   border: none;
-  background-color: rgba(0, 0, 0, .2);
+  background-color: navy;
 }
 
 li.list-group-item{
@@ -80,13 +103,21 @@ label.add{
   margin-bottom: 15px;
 }
 
+
+.mapping__elements__container {
+ Height: 75vh;
+overflow: auto;
+}
+
 .filtred{
   display: none !important;
 }
-
+.input__Wrapper {
+  align: center;
+}
 .mapingdivs {
-  background-color:rgba(0, 0, 0, .2); 
-  border-radius: 10px;
+  background-color:navy; 
+  border-radius: 3px;
   padding: 11px;
   display: flex;
 }
@@ -97,23 +128,28 @@ h1 {
 }
 input {
 
-  width: 80%;
-  display: block;
- margin: 0 auto;
- margin-bottom: 10px;
-  height: 20px;
-  align-items: center;
-  text-align: center;
-  font-size: 15px;
+height: 30px;
+
+text-align: center;
+font-size: 15px;
+position: fixed;
+bottom: 15px;
+margin: auto;
+left: 0;
+right: 15px;
+position: fixed;
+width: 80%;
+
 }
 
 button {
   color: white;
-  background-color: rgba(0, 0, 0, .5);
-  border-radius: 5px;
+  background-color: navy;
+  border-radius: 0px 0px 5px 5px;
   border: none;
   padding: 10px;
-  margin: 0 auto;
+  margin:  auto;
   display: block;
+ margin-bottom: 10px;
   width: 50%;
 }
