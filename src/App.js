@@ -5,8 +5,6 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { MdDeleteSweep } from 'react-icons/md';
 import React from 'react';
 function App() {
- 
-
   const firebaseConfig = {
     apiKey: "AIzaSyAk1rZbPAifRK-etQdKossW8l_aljJp3Zo",
     authDomain: "todo-app-c51aa.firebaseapp.com",
@@ -17,19 +15,20 @@ function App() {
     measurementId: "G-6R8STXHX8D"
   };
   const app = initializeApp(firebaseConfig);
+
+
   const axios = require('axios');
   const [todos, setTodos] = React.useState(JSON.parse(localStorage.getItem('todos')) || [])
   const [title, settitle] = React.useState("");
   const [Search, setSearch] = React.useState("");
   const [Isloading, setLoading] = React.useState(false);
-  const [HeaderText__value, setHeaderText] = React.useState("TodoApp in react")
+  const [HeaderText__value, setHeaderText] = React.useState("Список дел")
   async function FetchPost() {
     setHeaderText("You load todos from jsonplaceholder");
     const {data} = await axios.get("https://jsonplaceholder.typicode.com/todos")
   setTodos(data)
   }
-  
-            
+          
     const deleted = index => {
       const copy = [...todos]
      copy.splice(index, 1);
@@ -39,7 +38,7 @@ function App() {
     localStorage.setItem('todos', JSON.stringify(todos));
   const addTodo = () => {
     if(title === '') {
-     console.log("write title n field")
+     console.log("write title in field")
     } else {
       
       setTodos(todos => [
@@ -59,16 +58,12 @@ function App() {
 
   return (
     <body className="App">
-  
-
-  
-   
       <div>
      <div className='first__Block__Wrapeer'>
      <h1 onClick={FetchPost}>{HeaderText__value}</h1>
       <MdDeleteSweep className='trash__Delete__All_Todos' onClick={DeleteAllTodos}></MdDeleteSweep>
      </div>
-      <input className="Search__input" placeholder='Search' value={Search} onChange={e => setSearch(e.target.value.toLowerCase())}></input>
+      <input className="Search__input" placeholder='Поиск' value={Search} onChange={e => setSearch(e.target.value.toLowerCase())}></input>
     <div className="mapping__elements__container">
   
     {  todos.filter(todos => todos.title.toLowerCase().includes(Search)).map((todo1, index) => ( 
@@ -81,7 +76,7 @@ function App() {
     </div>
 
 <div className='input__Wrapper'>
-<input placeholder='Write you todo here' onKeyPress={(e) => e.key === 'Enter' && addTodo()} value={title} onChange={e => settitle(e.target.value)} ></input>
+<input placeholder='Напиши сюда задачу' onKeyPress={(e) => e.key === 'Enter' && addTodo()} value={title} onChange={e => settitle(e.target.value)} ></input>
 
 </div>
  </div> 

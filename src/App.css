@@ -121,7 +121,7 @@ overflow: auto;
 .first__Block__Wrapeer {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 25npx;
   margin: 0 auto;
   justify-content: center;
 
