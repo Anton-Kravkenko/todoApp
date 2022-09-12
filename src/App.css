@@ -1,14 +1,23 @@
 body{
-  background-color: slateblue;
+  background-color: #443434;
   margin: 0 auto;
 }
-
-input[type=text],
-input[type=text]:focus{
-  color: #fff;
-  transition: all ease-out 0.5s;
-  border: none;
-  background-color: rgba(0, 0, 0, .2);
+.Search__input {
+  height: 25px;
+text-align: center;
+font-size: 15px;
+position: fixed;
+bottom: 0;
+margin: 10px auto;
+left: 0;
+right: 15px;
+position: relative;
+width: 40%;
+display: block;
+}
+.trash__Delete__All_Todos {
+  color: white;
+font-size: 27px;
 }
 .trash__deleteitems {
   color: white;
@@ -20,8 +29,7 @@ display: block;
 margin-left: auto;
 }
 .trash__deleteitems:hover {
-  color: wheat;
-margin: auto auto;
+  color: #D2D79F;
 transition: all ease-in 0.7s;
 font-size: 21px;
 }
@@ -54,7 +62,7 @@ font-size: 21px;
 }
 
 h1 {
-  text-align: center;
+  
 }
 
 .container{
@@ -74,18 +82,13 @@ p {
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 20px;
 }
 
-input[type=text],
-input[type=text]:focus{
-  color: #fff;
-  border: none;
-  background-color: navy;
-}
+
 
 li.list-group-item{
-  background-color: #423a6f;
+  background-color: green;
   color: #F8F9FA;
 }
 
@@ -115,19 +118,32 @@ overflow: auto;
 .input__Wrapper {
   align: center;
 }
+.first__Block__Wrapeer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+  justify-content: center;
+
+}
 .mapingdivs {
-  background-color:navy; 
+ background-color: #307953;
   border-radius: 3px;
   padding: 11px;
   display: flex;
 }
+..mapingdivs:hover{
+  background-color: ;
+}
 h1 {
-  color: whitesmoke;
-  display: flex;
-  justify-content: center;
+  color: white;
+  
 }
 input {
-
+  background-color: #42855B;
+  border: none;
+  color: white;
+  border-radius: 3px;
 height: 30px;
 
 text-align: center;
