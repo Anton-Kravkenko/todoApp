@@ -24,9 +24,10 @@ font-size: 27px;
   margin-top: auto;
 margin-bottom: auto;
 
+
 font-size: 21px;
 display: block;
-margin-left: auto;
+
 }
 .trash__deleteitems:hover {
   color: #D2D79F;
@@ -57,13 +58,22 @@ font-size: 21px;
   align-items: center;
 }
 
-.widthBLOCK {
-  width: 80%;
+
+.Go__to__timer__page {
+  color: white;
+  font-size: 20px;
+  margin-top: 7px;
+}
+.Add-to-mark {
+color: white;
+margin-top: auto;
+margin-bottom: auto;
+font-size: 24px;
+display: block;
+margin-left: auto;
 }
 
-h1 {
-  
-}
+
 
 .container{
   max-width: 450px;
@@ -121,7 +131,7 @@ overflow: auto;
 .first__Block__Wrapeer {
   display: flex;
   align-items: center;
-  gap: 25npx;
+  gap: 25px;
   margin: 0 auto;
   justify-content: center;
 
@@ -131,10 +141,9 @@ overflow: auto;
   border-radius: 3px;
   padding: 11px;
   display: flex;
+  justify-content: space-between;
 }
-..mapingdivs:hover{
-  background-color: ;
-}
+
 h1 {
   color: white;
   
