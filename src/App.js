@@ -5,12 +5,14 @@ import Tidos from './tidos';
 
 function App() {
   return (
-<div className>
+    <React.Fragment>
+<div>
 <Routes>
   <Route path="/" element={<Tidos/>}/>
   <Route path="/timer" element={<Timer/>}/>
 </Routes>
 </div>
+</React.Fragment>
     ); }
 
 

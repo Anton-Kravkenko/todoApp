@@ -12,11 +12,6 @@ function Timer() {
         <button onClick={startTtimer()}>
         Start
         </button>
-        {/* {mark.map(marks => (
-            <div>
-            <h1>марк</h1>
-            </div>
-        ))} */}
        </body>    ) }
 
 

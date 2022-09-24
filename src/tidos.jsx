@@ -19,8 +19,8 @@ function Tidos() {
       const {data} = await axios.get("https://jsonplaceholder.typicode.com/todos")
      
 
-      setTodos(data)
-console.log(data)
+      setTodos( data)
+
     }  
 
 
@@ -49,7 +49,7 @@ console.log(data)
     
       return (
         
-        <body className="App">
+        <div className="App">
               <div>
          <div className='first__Block__Wrapeer'>
         <Link to="/timer"><MdTimer   className='Go__to__timer__page'/></Link>
@@ -65,7 +65,7 @@ console.log(data)
         <div className="mapping__elements__container">
          
         {todos.filter(todos => todos.title.toLowerCase().includes(Search)).map((todos, index) => ( 
-  <TodoItems todos={todos} index={index} deleted={deleted}/>
+  <TodoItems todos={todos} index={index} deleted={deleted} key={index}/>
   ))}
         </div>
     
@@ -75,7 +75,7 @@ console.log(data)
     </div>
      </div>
     
-     </body>
+     </div>
       )
 }
 export default Tidos;
