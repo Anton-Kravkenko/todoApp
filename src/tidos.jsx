@@ -9,7 +9,7 @@ import './App.css';
 function Tidos() {
     const axios = require('axios');
     const [todos, setTodos] = React.useState(JSON.parse(localStorage.getItem('todos')) || [])
-    const [title, settitle] = React.useState("");
+    const [title, setTitle] = React.useState("");
     const [Search, setSearch] = React.useState("");
     const [HeaderText__value, setHeaderText] = React.useState("Список дел v1.5")
 
@@ -17,10 +17,10 @@ function Tidos() {
    
       setHeaderText("You load todos from jsonplaceholder");
       const {data} = await axios.get("https://jsonplaceholder.typicode.com/todos")
-     
 
-      setTodos( data)
-
+        setTodos(data)
+        localStorage.setItem('todos', JSON.stringify(todos));
+        console.log(data)
     }  
 
 
@@ -36,8 +36,8 @@ function Tidos() {
        console.log("write title in field")
       } else {
         setTodos(todos => [
-          {title}, ...todos, ])
-       settitle("")
+          {title}, ...todos ])
+       setTitle("")
      
       }
       }
@@ -61,16 +61,16 @@ function Tidos() {
           <input
            className="Search__input" 
            placeholder='Поиск' value={Search} 
-           onChange={e => setSearch(e.target.value.toLowerCase())}></input>
+           onChange={e => setSearch(e.target.value)}></input>
         <div className="mapping__elements__container">
-         
-        {todos.filter(todos => todos.title.toLowerCase().includes(Search)).map((todos, index) => ( 
+        
+        {todos.filter(todos => todos.title.toLowerCase().includes(Search.toLowerCase())).map((todos, index) => (
   <TodoItems todos={todos} index={index} deleted={deleted} key={index}/>
   ))}
         </div>
     
     <div className='input__Wrapper'>
-    <input placeholder='Напиши сюда задачу' onKeyPress={(e) => e.key === 'Enter' && addTodo()} value={title} onChange={e => settitle(e.target.value)} ></input>
+    <input placeholder='Напиши сюда задачу' onKeyPress={(e) => e.key === 'Enter' && addTodo()} value={title} onChange={e => setTitle(e.target.value)} ></input>
     
     </div>
      </div>
