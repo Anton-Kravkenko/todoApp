@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { FaTrashAlt } from 'react-icons/fa';
 import {MdBookmarkAdd} from 'react-icons/md';
 import { MdDeleteSweep } from 'react-icons/md';
@@ -6,30 +6,25 @@ import { MdTimer } from 'react-icons/md';
 import {Navigate, Link} from "react-router-dom";
 import TodoItems from './TodoItems';
 import './App.css';
-function tidos() {
+function Tidos() {
     const axios = require('axios');
     const [todos, setTodos] = React.useState(JSON.parse(localStorage.getItem('todos')) || [])
-    const [mark, setMark] = React.useState(JSON.parse(localStorage.getItem('mark')) || [])
     const [title, settitle] = React.useState("");
     const [Search, setSearch] = React.useState("");
-    const [HeaderText__value, setHeaderText] = React.useState("Список дел 1.2")
+    const [HeaderText__value, setHeaderText] = React.useState("Список дел v1.5")
+
     async function FetchPost() {
+   
       setHeaderText("You load todos from jsonplaceholder");
       const {data} = await axios.get("https://jsonplaceholder.typicode.com/todos")
-    setTodos(data)
-    }      
+     
 
-    // const MarkingElement = index => {
-    //     const copyMark = [...mark]
-    //     const copy = [...todos]
-    //     copyMark.push(index)
-    //    copy.splice(index, 1);
-    //    setTodos(copy);
-    //    setMark(copyMark);
-    //     return <Navigate replace to="/home" />
-    //   }
-      localStorage.setItem('todos', JSON.stringify(todos));
-    
+      setTodos(data)
+console.log(data)
+    }  
+
+
+  
       const deleted = index => {
         const copy = [...todos]
        copy.splice(index, 1);
@@ -40,7 +35,7 @@ function tidos() {
       if(title === '') {
        console.log("write title in field")
       } else {
-        setTodos([
+        setTodos(todos => [
           {title}, ...todos, ])
        settitle("")
      
@@ -68,9 +63,9 @@ function tidos() {
            placeholder='Поиск' value={Search} 
            onChange={e => setSearch(e.target.value.toLowerCase())}></input>
         <div className="mapping__elements__container">
-      
-        {  todos.filter(todos => todos.title.toLowerCase().includes(Search)).map((todo1, index) => ( 
-  <TodoItems todo1={todo1} index={index} deleted={deleted}/>
+         
+        {todos.filter(todos => todos.title.toLowerCase().includes(Search)).map((todos, index) => ( 
+  <TodoItems todos={todos} index={index} deleted={deleted}/>
   ))}
         </div>
     
@@ -83,8 +78,7 @@ function tidos() {
      </body>
       )
 }
+export default Tidos;
 
-export default tidos;
-// export const [mark, setMark] = React.useState(JSON.parse(localStorage.getItem('mark')) || []);
 
 
