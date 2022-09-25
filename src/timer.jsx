@@ -7,12 +7,12 @@ function Timer() {
    const startTtimer = () => {
    }
     return (
-        <body className="Timer">
-        <h1>Timer</h1>
+        <div   className="Timer">
+        <h1 className="title__in__Timer">Timer</h1>
         <button onClick={startTtimer()}>
         Start
         </button>
-       </body>    ) }
+       </div>    ) }
 
 
 export default Timer;

@@ -1,7 +1,9 @@
 body{
   background-color: #443434;
   margin: 0 auto;
-}
+}.title__in__Timer {
+  text-align: center;
+ }
 .Search__input {
   height: 25px;
 text-align: center;
